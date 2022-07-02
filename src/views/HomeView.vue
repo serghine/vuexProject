@@ -1,7 +1,12 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <div class="counter">
+    <div 
+    class="counter"
+    :style="{
+      color:$store.state.color
+    }"
+    >
       {{ $store.state.counter }}
       
       <!-- {{counter}} -->
@@ -20,6 +25,7 @@
       <!-- <button @click="increment">+</button> -->
       <!-- <button @click="decrement">-</button> -->
     </div>
+    <input type="text" v-model="$store.state.color" placeholder="Enter one color" />
   </div>
 </template>
 
