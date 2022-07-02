@@ -25,7 +25,8 @@
       <!-- <button @click="increment">+</button> -->
       <!-- <button @click="decrement">-</button> -->
     </div>
-    <input type="text" v-model="$store.state.color" placeholder="Enter one color" />
+    <!-- <input type="text" v-model="$store.state.color" placeholder="Enter one color" /> -->
+    <input type="text" placeholder="Enter one color" v-model="color">
   </div>
 </template>
 
@@ -33,6 +34,16 @@
 
 export default {
   name: 'HomeView',
+  computed:{
+   color:{
+     get(){
+     return this.$store.state.color
+     },
+     set(value){
+       return this.$store.commit("setColor",value)
+     }
+   }
+  },
   components: {},
   // data(){
   //   return{
