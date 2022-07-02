@@ -1,37 +1,18 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <div 
-    class="counter"
-    :style="{
-      color:$store.state.color
-    }"
-    >
-      {{ $store.state.counter }}
-      
-      <!-- {{counter}} -->
-    </div>
-    <div class="counter-squared">
-      {{ $store.state.counter }}
-       <sup>2</sup> ==
-       {{$store.getters.counterSquared}}
-    </div>
-    <div class="buttons">
-      <button @click="$store.dispatch('increment')">+</button>
-      <button @click="$store.dispatch('decrement')">-</button>
-        <!-- <button @click="$store.commit('increment')">+</button>
-             <button @click="$store.commit('decrement')">+</button> -->
-
-      <!-- <button @click="increment">+</button> -->
-      <!-- <button @click="decrement">-</button> -->
-    </div>
-    <!-- <input type="text" v-model="$store.state.color" placeholder="Enter one color" /> -->
-    <input type="text" placeholder="Enter one color" v-model="color">
+     <Counter />
+     <CounterDisquared/> 
+     <Buttons/>
+     <Color/>   
   </div>
 </template>
 
 <script>
-
+import Counter from "@/components/Counter.vue"
+import CounterDisquared from "@/components/Counter-squared.vue"
+import Buttons from "@/components/Buttons.vue"
+import Color from "@/components/Color.vue"
 export default {
   name: 'HomeView',
   computed:{
@@ -39,12 +20,12 @@ export default {
      get(){
      return this.$store.state.color
      },
-     set(value){
-       return this.$store.commit("setColor",value)
+     set(newValue){
+       return this.$store.dispatch("setColor",newValue)
      }
    }
   },
-  components: {},
+  components: {Counter,CounterDisquared,Buttons,Color},
   // data(){
   //   return{
   //     counter:0

@@ -18,8 +18,8 @@ export default createStore({
     decrement(state,random){
       state.counter -= random
     },
-    setColor(state, value){
-      return state.color=value;
+    setColor(state, newValue){
+      return state.color=newValue;
     }
   },
   actions: {
@@ -35,6 +35,9 @@ export default createStore({
       .then(response=>{
         commit('increment',response.data);
       })
+    },
+    setColor({commit},newValue){
+      commit("setColor",newValue);
     }
 
   },
