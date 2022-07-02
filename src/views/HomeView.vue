@@ -6,10 +6,14 @@
       
       <!-- {{counter}} -->
     </div>
+    <div class="counter-squared">
+      {{ $store.state.counter }}
+       <sup>2</sup> ==
+       {{$store.getters.counterSquared}}
+    </div>
     <div class="buttons">
       <button @click="$store.dispatch('increment')">+</button>
       <button @click="$store.dispatch('decrement')">-</button>
-
         <!-- <button @click="$store.commit('increment')">+</button>
              <button @click="$store.commit('decrement')">+</button> -->
 
