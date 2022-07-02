@@ -6,6 +6,9 @@ export default createStore({
     counter:0
   },
   getters: {
+    counterSquared(state){
+      return state.counter * state.counter;
+    }
   },
   mutations: {
     increment(state,randomNumber){
